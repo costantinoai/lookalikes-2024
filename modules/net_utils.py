@@ -15,30 +15,6 @@ import torch.nn as nn
 import torch.nn.init as init
 import PIL
 
-def extract_model_seed_from_filename(file_name):
-    """
-    Extract model and seed information from the file name.
-
-    This function assumes a specific file name format: 'activations_model-{model_id}_seed-{seed}.pkl'.
-    It extracts the 'model_id' and 'seed' information from the file name.
-
-    :param file_name: The file name to extract information from.
-    :type file_name: str
-    :return: A tuple containing the 'model_id' and 'seed' extracted from the file name.
-    :rtype: Tuple[int, int]
-
-    :Example:
-
-    >>> file_name = 'activations_model-123_seed-456.pkl'
-    >>> model_id, seed = extract_model_seed_from_filename(file_name)
-    >>> print(model_id, seed)
-    123 456
-    """
-    parts = file_name.split('_')
-    model_id = parts[1].split('-')[1]
-    seed = parts[2].split('-')[1].replace('.pkl', '')
-    return model_id, seed
-
 def env_check():
     """
     Check and display environment information for the current PyTorch setup.
